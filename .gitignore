@@ -26,7 +26,6 @@ yarn-error.log*
 lerna-debug.log*
 
 # Tests
-/coverage
 /.nyc_output
 
 # IDEs and editors
