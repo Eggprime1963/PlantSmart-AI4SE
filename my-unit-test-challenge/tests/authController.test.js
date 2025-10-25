@@ -386,6 +386,7 @@ describe('Authentication Controller Tests', () => {
       const mockUser = {
         user_id: '123',
         password: 'hashedOldPass',
+        validatePassword: jest.fn().mockResolvedValue(true),
         updatePassword: jest.fn().mockResolvedValue(true)
       };
       User.findById.mockResolvedValue(mockUser);
