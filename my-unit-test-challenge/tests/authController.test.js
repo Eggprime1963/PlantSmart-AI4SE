@@ -468,21 +468,6 @@ describe('Authentication Controller Tests', () => {
 
     it('[CP_06] should return 400 for weak password', async () => {
       // Arrange
-      const mockUser = {
-        user_id: '123',
-        password: 'hashedOldPass'
-      };
-      User.findById.mockResolvedValue(mockUser);
-      bcrypt.compare.mockResolvedValue(true); // Simulate successful current password validation
-      // Mock successful current password validation but provide weak new password
-      const mockUser = {
-        user_id: '123',
-        password: 'hashedOldPass',
-        validatePassword: jest.fn().mockResolvedValue(true)
-      };
-      User.findById.mockResolvedValue(mockUser);
-      bcrypt.compare.mockResolvedValue(true);
-      // Mock successful current password validation but provide weak new password
       User.findById.mockResolvedValue({
         user_id: '123',
         password: 'hashedOldPass',
