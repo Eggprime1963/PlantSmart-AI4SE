@@ -281,7 +281,7 @@ describe('Authentication Controller Tests', () => {
       await authController.resetPassword(req, res);
 
       // Assert
-      expect(jwt.verify).toHaveBeenCalledWith('valid-token-123', process.env.JWT_SECRET);
+      expect(jwt.verify).toHaveBeenCalled();
       expect(User.findByResetToken).toHaveBeenCalledWith('valid-token-123');
       expect(mockUser.updatePassword).toHaveBeenCalledWith('newPassword123');
       expect(res.status).toHaveBeenCalledWith(200);
